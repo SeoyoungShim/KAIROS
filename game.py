@@ -76,7 +76,7 @@ class QuizGame:
         print(f"맞힌 문제: {round_correct}/{round_total}")
         print(f"정답률: {round_accuracy:.1f}%")
 
-        if round_accuracy > self.best_score:
+        if self.best_total == 0 or round_accuracy > self.best_score:
             self.best_score = round_accuracy
             self.best_correct = round_correct
             self.best_total = round_total

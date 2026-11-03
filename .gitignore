@@ -5,3 +5,4 @@ venv/
 .env
 state.json
 state_backup.json
+state*.json
