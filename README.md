@@ -141,10 +141,10 @@ KAIROS는 퀴즈 문제, 게임 진행, 점수 및 데이터 저장 등 여러 �
 
 ## 8. 데이터 저장 방식
 
-![데이터 저장 방식 인포그래픽](screenshots/data_storage_infographic.png)
+<img src="screenshots/data_storage_infographic.png" width="500" alt="데이터 저장 방식 인포그래픽">
 
-![KAIROS 데이터 처리와 JSON 활용 인포그래픽](screenshots/KAIROS%20데이터%20처리와%20JSON%20활용%20인포그래픽.png)
 
+<img src="screenshots/KAIROS%20데이터%20처리와%20JSON%20활용%20인포그래픽.png" width="500" alt="KAIROS 데이터 처리와 JSON 활용 인포그래픽">
 ---
 
 ## 9. 입력값 검증 및 예외 처리
