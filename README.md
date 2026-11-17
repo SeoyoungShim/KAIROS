@@ -74,31 +74,7 @@ KAIROS는 GitHub 저장소를 복제한 후 별도의 외부 라이브러리 설
 
 ## 6. 프로젝트 파일 구조
 
-![KAIROS 프로젝트 파일 구조](screenshots/project_structure.png)
-
-```text
-KAIROS/
-│
-├── main.py
-│   └── 프로그램 시작 및 기본 퀴즈 생성
-│
-├── game.py
-│   └── QuizGame 클래스 및 게임 진행 기능
-│
-├── quiz.py
-│   └── Quiz 클래스 및 개별 퀴즈 기능
-│
-├── state.json
-│   └── 게임 데이터 저장 파일
-│
-├── screenshots/
-│   └── 프로그램 실행 및 개발 과정 증거 이미지
-│
-└── README.md
-    └── 프로젝트 설명 및 사용 안내
-```
-
-※ `state.json`은 실행 과정에서 생성·관리되는 로컬 데이터 파일이며, GitHub 저장소에서는 별도로 추적하지 않는다.
+<img src="screenshots/project_structure.png" alt="KAIROS 프로젝트 파일 구조" width="500">
 
 ---
 
