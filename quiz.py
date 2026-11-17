@@ -1,5 +1,6 @@
-﻿class Quiz:
-    def __init__(self, question, choices, answer):
+﻿
+class Quiz:
+    def __init__(self, question, choices, answer, hint="힌트가 없습니다."):
         if not isinstance(question, str) or not question.strip():
             raise ValueError("문제는 빈칸으로 입력할 수 없습니다.")
 
@@ -17,9 +18,13 @@
         ):
             raise ValueError("정답은 1부터 4까지의 숫자여야 합니다.")
 
+        if not isinstance(hint, str) or not hint.strip():
+            raise ValueError("힌트는 빈칸으로 입력할 수 없습니다.")
+
         self.question = question.strip()
         self.choices = [choice.strip() for choice in choices]
         self.answer = answer
+        self.hint = hint.strip()
 
     def display(self):
         print("\n" + self.question)

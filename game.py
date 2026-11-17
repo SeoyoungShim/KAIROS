@@ -1,4 +1,5 @@
-﻿import json
+﻿
+import json
 from pathlib import Path
 
 from quiz import Quiz
@@ -45,6 +46,30 @@ class QuizGame:
 
             print("잘못된 입력입니다. 1~4 중에서 다시 입력하세요.")
 
+    # 힌트 기능이 포함된 정답 입력
+    def get_play_answer(self, quiz):
+        hint_used = False
+
+        while True:
+            answer = input(
+                "정답 번호를 입력하세요 (1~4, 힌트: h): "
+            ).strip().lower()
+
+            if answer == "h":
+                if not hint_used:
+                    print(f"\n힌트: {quiz.hint}")
+                    print("힌트를 사용했습니다. 이번 문제의 점수는 획득할 수 없습니다.")
+                    hint_used = True
+                else:
+                    print("힌트는 한 문제당 한 번만 사용할 수 있습니다.")
+
+                continue
+
+            if answer in ["1", "2", "3", "4"]:
+                return int(answer), hint_used
+
+            print("잘못된 입력입니다. 1~4 또는 h를 입력하세요.")
+
     # 퀴즈 풀기
     def play(self):
         if not self.quizzes:
@@ -58,12 +83,19 @@ class QuizGame:
 
         for quiz in self.quizzes:
             quiz.display()
-            answer = self.get_answer()
+
+            answer, hint_used = self.get_play_answer(quiz)
 
             if quiz.check_answer(answer):
                 print("정답입니다!")
                 round_correct += 1
-                self.score += 1
+
+                if hint_used:
+                    print("힌트 사용으로 이번 문제의 점수는 획득하지 못했습니다.")
+                else:
+                    self.score += 1
+                    print("1점을 획득했습니다.")
+
             else:
                 print(f"오답입니다. 정답은 {quiz.answer}번입니다.")
 
@@ -96,12 +128,12 @@ class QuizGame:
         else:
             print("최고 점수: 아직 기록이 없습니다.")
 
-        print(f"누적 정답: {self.score}")
+        print(f"누적 점수: {self.score}점")
         print(f"누적 풀이: {self.total_questions}")
 
         if self.total_questions > 0:
             accuracy = (self.score / self.total_questions) * 100
-            print(f"누적 정답률: {accuracy:.1f}%")
+            print(f"누적 점수 기준 비율: {accuracy:.1f}%")
         else:
             print("아직 푼 문제가 없습니다.")
 
@@ -133,8 +165,16 @@ class QuizGame:
 
         answer = self.get_answer()
 
+        while True:
+            hint = input("힌트를 입력하세요: ").strip()
+
+            if hint:
+                break
+
+            print("힌트는 빈칸으로 입력할 수 없습니다.")
+
         try:
-            quiz = Quiz(question, choices, answer)
+            quiz = Quiz(question, choices, answer, hint)
             self.add_quiz(quiz)
 
             print("퀴즈가 추가되었습니다!")
@@ -150,7 +190,8 @@ class QuizGame:
                 {
                     "question": quiz.question,
                     "choices": quiz.choices,
-                    "answer": quiz.answer
+                    "answer": quiz.answer,
+                    "hint": quiz.hint
                 }
                 for quiz in self.quizzes
             ],
@@ -189,7 +230,12 @@ class QuizGame:
                 raise ValueError("퀴즈 목록 형식이 올바르지 않습니다.")
 
             quizzes = [
-                Quiz(item["question"], item["choices"], item["answer"])
+                Quiz(
+                    item["question"],
+                    item["choices"],
+                    item["answer"],
+                    item.get("hint", "힌트가 없습니다.")
+                )
                 for item in quizzes_data
             ]
 
@@ -238,8 +284,13 @@ class QuizGame:
 
             print("저장된 게임 데이터를 불러왔습니다.")
 
-        except (json.JSONDecodeError, KeyError, TypeError,
-                ValueError, AttributeError):
+        except (
+            json.JSONDecodeError,
+            KeyError,
+            TypeError,
+            ValueError,
+            AttributeError
+        ):
             print("저장 파일이 손상되었습니다. 새 게임을 시작합니다.")
 
         except OSError:
