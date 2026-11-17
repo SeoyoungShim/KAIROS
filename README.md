@@ -39,34 +39,14 @@ KAIROS는 Python을 활용하여 개발한 콘솔 기반 퀴즈 게임 프로젝
 | 입력값 검증 및 예외 처리 | 잘못된 입력이나 예상치 못한 상황에 대응하여 프로그램이 안정적으로 작동하도록 합니다. | 구현 완료 |
 
 ## 4. 프로그램 실행 방법
+| 단계 | 실행 명령어 | 설명 |
+|---|---|---|
+| 1. 저장소 복제 | `git clone https://github.com/SeoyoungShim/KAIROS.git` | GitHub에 있는 KAIROS 프로젝트를 내 컴퓨터로 복사합니다. |
+| 2. 프로젝트 폴더 이동 | `cd KAIROS` | 복제한 KAIROS 폴더로 이동합니다. |
+| 3. 프로그램 실행 (Mac) | `python3 main.py` | Python 3을 사용하여 프로그램을 실행합니다. |
+| 4. 프로그램 실행 (Windows) | `python main.py` | Windows 환경에서 프로그램을 실행합니다. |
 
-### 4-1. 저장소 복제
-
-터미널에서 다음 명령어를 입력한다.
-
-```bash
-git clone https://github.com/SeoyoungShim/KAIROS.git
-```
-
-### 4-2. 프로젝트 폴더 이동
-
-```bash
-cd KAIROS
-```
-
-### 4-3. 프로그램 실행
-
-```bash
-python3 main.py
-```
-
-Windows 환경에서는 다음 명령어를 사용할 수 있다.
-
-```bash
-python main.py
-```
-
-별도의 외부 라이브러리 설치 없이 실행할 수 있다.
+KAIROS는 GitHub 저장소를 복제한 후 별도의 외부 라이브러리 설치 없이 실행할 수 있습니다.
 
 ---
 
