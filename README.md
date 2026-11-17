@@ -74,7 +74,7 @@ KAIROS는 GitHub 저장소를 복제한 후 별도의 외부 라이브러리 설
 
 ## 6. 프로젝트 파일 구조
 
-![KAIROS 프로젝트 파일 구조](screenshots/KAIROS%20프로젝트%20파일%20구조.png)
+![KAIROS 프로젝트 파일 구조](screenshots/project_structure.png)
 
 ```text
 KAIROS/
