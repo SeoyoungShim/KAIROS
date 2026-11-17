@@ -152,7 +152,7 @@ KAIROS는 퀴즈 문제, 게임 진행, 점수 및 데이터 저장 등 여러 �
 
 ### 9-1. 입력값 검증
 
-사용자가 입력한 값에 불필요한 공백이 포함된 경우 `strip()`을 사용하여 공백을 제거할 수 있다.
+사용자가 입력한 값에 불필요한 공백이 포함된 경우 `strip()`을 사용하여 공백을 제거할 수 있습니다.
 
 ```python
 answer = "  1  "
@@ -166,7 +166,7 @@ print(answer)
 1
 ```
 
-![입력값 검증 실행 화면](screenshots/input_validation.png)
+<img src="screenshots/input_validation.png" width="500">
 
 ### 9-2. 저장 파일 예외 처리
 
@@ -182,7 +182,7 @@ print(answer)
 
 단, 기존에 추가한 퀴즈나 점수는 백업이 없다면 복구되지 않을 수 있습니다.
 
-![JSON 예외 처리](screenshots/json_exception.png)
+<img src="screenshots/json_exception.png" width="500">
 
 ### 9-3. 프로그램 종료 예외 처리
 
@@ -195,7 +195,7 @@ print(answer)
 
 JSON 파일을 복원한 후 저장된 데이터를 정상적으로 불러오고 프로그램이 정상 종료되는 것을 확인하였습니다.
 
-![JSON 복원 및 정상 실행](screenshots/json_restore.png)
+<img src="screenshots/json_restore.png" width="500">
 
 ## 10. JSON 저장 방식의 성능과 한계
 
